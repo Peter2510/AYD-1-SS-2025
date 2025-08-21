@@ -1,1 +1,1 @@
-texto para el archivo 2
+texto para el archivo 2 para probar stash
