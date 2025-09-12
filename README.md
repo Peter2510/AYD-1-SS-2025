@@ -140,3 +140,6 @@ docker-compose.yml
       jenkins_home:
   
 
+# WebHook GitHub
+
+http://IP_HOST:8080/github-webhook/
