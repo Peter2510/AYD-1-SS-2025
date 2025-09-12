@@ -67,6 +67,19 @@ Guía breve para entender qué es **CI/CD**, por qué utilizar **Jenkins**, y c�
 
 # Ejemplo práctico
 
+# Configuracion Swap
+
+sudo fallocate -l 3G /swapfile
+
+sudo chmod 600 /swapfile
+
+sudo mkswap /swapfile
+
+sudo swapon /swapfile
+
+swapon --show
+
+
 # Instalaciones necesarias
 
     https://docs.docker.com/engine/install/ubuntu/
