@@ -24,6 +24,7 @@ Feature: Gestión de entregas
   Para distribuir eficientemente las guías
 
   Scenario: Asignación manual de entrega a repartidor
+
     Given que soy coordinador
     And hay repartidores disponibles
     When creo una nueva entrega
@@ -32,6 +33,7 @@ Feature: Gestión de entregas
     And el repartidor debe ver la entrega en su aplicación
 
   Scenario: Sugerencia automática de repartidor
+
     Dado que soy coordinador
     Y hay entregas sin asignar
     Cuando reviso las entregas pendientes
@@ -57,13 +59,13 @@ El producto debe quedar en estado "Publicado" o "Borrador" según elección.
 
 ### Escenarios en Gherkin
 
-
 Feature: Registro de producto
   Como administrador de catálogo
   Quiero registrar un nuevo producto
   Para publicarlo en la tienda
 
   Scenario: Registro exitoso de producto publicado
+
     Given que tengo permisos de administrador
     When completo todos los campos obligatorios con datos válidos
     And subo imágenes válidas
@@ -71,6 +73,7 @@ Feature: Registro de producto
     And queda en estado "Publicado"
 
   Scenario: Intento de registro con SKU duplicado
+
     Given que existe un producto con SKU "ABC123"
     When intento crear otro producto con SKU "ABC123"
     Then el sistema muestra un error indicando SKU duplicado
@@ -102,12 +105,14 @@ Feature: Visualización de historial de pedidos
   Para revisar compras y descargar recibos
 
   Scenario: Ver detalle de pedido y descargar recibo
+
     Given que soy usuario autenticado
     And tengo pedidos anteriores
     When accedo a "Mis pedidos" y abro un pedido
     Then veo el detalle completo y el botón para descargar el recibo en PDF
 
   Scenario: Filtrar pedidos por fecha
+
     Given que tengo pedidos en varios meses
     When filtro pedidos entre 2025-01-01 y 2025-03-31
     Then la lista muestra sólo los pedidos en ese rango
@@ -139,11 +144,13 @@ Feature: Gestión de permisos y roles
   Para asegurar acceso correcto
 
   Scenario: Creación de un rol con permisos específicos
+
     Given que soy administrador con permiso para gestionar roles
     When creo un rol "GestorInventario" con permisos de lectura y escritura en inventario
     Then el rol se crea y aparece en la lista de roles
 
   Scenario: Asignación de rol a usuario
+
     Given que existe el rol "GestorInventario"
     And hay un usuario "juan.perez"
     When le asigno el rol a juan.perez
@@ -176,12 +183,14 @@ Feature: Registro de movimientos de inventario
   Para mantener stock actualizado
 
   Scenario: Registro de entrada de inventario
+
     Given que recibimos un nuevo lote de producto X
     When registro una entrada de 50 unidades con documento de compra
     Then el stock de producto X aumenta en 50 unidades
     And queda registrado el movimiento con el documento asociado
 
   Scenario: Bloqueo por salida con stock insuficiente
+
     Given que el stock de producto Y es 2
     When intento registrar una salida de 5 unidades
     Then el sistema bloquea la operación por stock insuficiente
@@ -214,11 +223,13 @@ Feature: Historial de actividad de usuarios
   Para investigar incidentes
 
   Scenario: Búsqueda de intentos de acceso fallidos
+
     Given que soy auditor con permisos para ver logs
     When busco eventos de tipo "login_failed" para usuario "ana.gomez" entre 2025-06-01 y 2025-06-30
     Then se muestran todos los intentos fallidos con IP y timestamp
 
   Scenario: Restricción de acceso a logs
+
     Given que soy un usuario sin rol de auditoría
     When intento acceder al historial de actividad
     Then el sistema deniega el acceso y muestra mensaje de permiso insuficiente
@@ -250,11 +261,13 @@ Feature: Creación de campañas promocionales
   Para incentivar ventas
 
   Scenario: Campaña válida aplicada en checkout
+
     Given que existe una campaña del 20% para la categoría "Ropa" vigente hoy
     When un cliente compra un producto de "Ropa" en checkout
     Then el descuento del 20% se aplica automáticamente al total
 
   Scenario: Prevención de solapamiento de campañas
+
     Given que hay una campaña activa para SKU "123" del 1 al 10 de julio
     When intento crear otra campaña para el mismo SKU entre el 5 y 15 de julio
     Then el sistema muestra advertencia de solapamiento y evita la creación
@@ -286,11 +299,13 @@ Feature: Gestión de devoluciones y reclamos
   Para gestionar reembolsos y calidad
 
   Scenario: Creación de RMA dentro del plazo
+
     Given que el pedido fue entregado hace 5 días y la política permite 30 días
     When el cliente solicita una devolución y se crea RMA
     Then el RMA queda registrado y el cliente recibe instrucciones de envío
 
   Scenario: Rechazo de devolución por plazo vencido
+
     Given que el pedido fue entregado hace 45 días y la política permite 30 días
     When el cliente solicita la devolución
     Then el sistema rechaza la solicitud por plazo vencido y notifica al cliente
@@ -322,11 +337,13 @@ Feature: Exportación de reportes de ventas
   Para análisis y toma de decisiones
 
   Scenario: Exportar reporte mensual a CSV
+
     Given que tengo permiso para ver ventas
     When genero un reporte de ventas del mes pasado por categoría y lo exporto a CSV
     Then se descarga un archivo CSV con columnas y totales correctos
 
   Scenario: Programar envío automático de reporte
+
     Given que estoy configurando un reporte semanal
     When programo el envío para todos los lunes a las 08:00
     Then el sistema envía el reporte automáticamente según programación
@@ -358,11 +375,13 @@ Feature: Gestión de direcciones de envío
   Para enviar pedidos correctamente
 
   Scenario: Agregar nueva dirección y marcarla predeterminada
+
     Given que soy usuario autenticado
     When agrego una nueva dirección válida y la marco como predeterminada
     Then la nueva dirección se guarda y se usa por defecto en checkout
 
   Scenario: Impedir eliminación de la única dirección predeterminada
+
     Given que tengo solo una dirección marcada como predeterminada
     When intento eliminarla
     Then el sistema impide la eliminación y solicita añadir otra dirección primero
@@ -394,11 +413,13 @@ Feature: Integración con transportistas
   Para automatizar guías y seguimiento
 
   Scenario: Probar conexión con transportista exitosamente
+
     Given que tengo credenciales válidas del transportista X
     When ejecuto la prueba de conexión desde la configuración
     Then el sistema muestra "Conexión exitosa" y lista servicios disponibles
 
   Scenario: Generación automática de guía al confirmar envío
+  
     Dado que la orden está lista para envío y la integración está activa
     Cuando confirmo la creación del envío
     Entonces el sistema solicita la guía al transportista y guarda el número de guía en la orden
