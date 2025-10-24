@@ -6,7 +6,7 @@ Como Coordinador
 Quiero poder asignar entregas a repartidores
 Para distribuir eficientemente las guías y garantizar que las entregas se realicen correctamente.
 
-Criterios de aceptación
+### Criterios de aceptación
 
 El sistema debe permitir asignar guías de forma manual a repartidores disponibles.
 
@@ -16,7 +16,8 @@ El sistema debe registrar la asignación realizada para que quede constancia.
 
 El repartidor debe poder ver las entregas asignadas en su aplicación.
 
-Escenarios en Gherkin
+### Escenarios en Gherkin
+
 Feature: Gestión de entregas
   Como coordinador
   Quiero asignar entregas a repartidores
@@ -44,7 +45,7 @@ Como Administrador de catálogo
 Quiero registrar un nuevo producto
 Para que esté disponible en la tienda y pueda ser vendido.
 
-Criterios de aceptación
+### Criterios de aceptación
 
 El formulario debe permitir SKU, nombre, descripción, categoría, precio, impuestos y stock inicial.
 
@@ -54,7 +55,8 @@ Permitir subir hasta 5 imágenes con tamaño y formato aceptados.
 
 El producto debe quedar en estado "Publicado" o "Borrador" según elección.
 
-Escenarios en Gherkin
+### Escenarios en Gherkin
+
 
 Feature: Registro de producto
   Como administrador de catálogo
@@ -74,7 +76,7 @@ Feature: Registro de producto
     Then el sistema muestra un error indicando SKU duplicado
     And no crea el producto
 
-## Ejemplo 3
+Ejemplo 3
 
 Historia de usuario (BDD)
 
@@ -82,7 +84,7 @@ Como Usuario
 Quiero ver el historial de mis pedidos
 Para revisar compras pasadas y descargar recibos.
 
-Criterios de aceptación
+### Criterios de aceptación
 
 Mostrar lista de pedidos con fecha, estado, total y número de pedido.
 
@@ -92,7 +94,7 @@ Permitir ver detalle de pedido y descargar recibo en PDF.
 
 Paginación para muchos pedidos.
 
-Escenarios en Gherkin
+### Escenarios en Gherkin
 
 Feature: Visualización de historial de pedidos
   Como usuario
@@ -118,7 +120,7 @@ Como Responsable de seguridad
 Quiero gestionar permisos de usuarios (roles y privilegios)
 Para controlar el acceso a funcionalidades sensibles.
 
-Criterios de aceptación
+### Criterios de aceptación
 
 Crear, editar y eliminar roles con permisos asociados.
 
@@ -128,7 +130,8 @@ Validar que cambios de permisos se aplican en tiempo real.
 
 Mantener un log de cambios con usuario responsable y timestamp.
 
-Escenarios en Gherkin
+### Escenarios en Gherkin
+
 
 Feature: Gestión de permisos y roles
   Como responsable de seguridad
@@ -154,7 +157,7 @@ Como Operador de almacén
 Quiero registrar entradas y salidas de inventario
 Para mantener el stock actualizado y auditable.
 
-Criterios de aceptación
+### Criterios de aceptación
 
 Registrar movimientos: tipo (entrada/salida), SKU, cantidad, motivo y documento asociado.
 
@@ -164,7 +167,8 @@ Mantener historial de movimientos con filtros por fecha y tipo.
 
 Generar notificaciones si el stock queda por debajo del mínimo.
 
-Escenarios en Gherkin
+### Escenarios en Gherkin
+
 
 Feature: Registro de movimientos de inventario
   Como operador de almacén
@@ -191,7 +195,7 @@ Como Soporte Técnico
 Quiero consultar el historial de actividad de un usuario (logs)
 Para investigar incidentes y auditorías.
 
-Criterios de aceptación
+### Criterios de aceptación
 
 Registrar eventos: inicios de sesión, cambios de configuración y operaciones críticas.
 
@@ -201,7 +205,8 @@ Incluir IP, timestamp y resultado (éxito/fallo).
 
 Acceso restringido a roles autorizados.
 
-Escenarios en Gherkin
+### Escenarios en Gherkin
+
 
 Feature: Historial de actividad de usuarios
   Como soporte técnico
@@ -226,7 +231,7 @@ Como Gestor de promociones
 Quiero crear campañas promocionales con descuentos por periodo
 Para aumentar ventas en temporadas específicas.
 
-Criterios de aceptación
+### Criterios de aceptación
 
 Crear campaña con nombre, fechas, condiciones, tipo de descuento y límite de uso.
 
@@ -236,7 +241,8 @@ Aplicar descuento en checkout automáticamente.
 
 Reportar métricas de rendimiento (uso, ahorro generado).
 
-Escenarios en Gherkin
+### Escenarios en Gherkin
+
 
 Feature: Creación de campañas promocionales
   Como gestor de promociones
@@ -261,7 +267,7 @@ Como Responsable de calidad
 Quiero registrar y gestionar devoluciones y reclamos
 Para procesar reembolsos y mejorar procesos.
 
-Criterios de aceptación
+### Criterios de aceptación
 
 Crear RMA ligado al pedido y motivo.
 
@@ -271,7 +277,8 @@ Flujo de inspección: recibido, verificado, aprobado/rechazado.
 
 Notificar al cliente del estado y generar reembolso cuando aplique.
 
-Escenarios en Gherkin
+### Escenarios en Gherkin
+
 
 Feature: Gestión de devoluciones y reclamos
   Como responsable de calidad
@@ -296,7 +303,7 @@ Como Analista
 Quiero exportar reportes de ventas por período y categoría
 Para analizar rendimiento y tomar decisiones.
 
-Criterios de aceptación
+### Criterios de aceptación
 
 Generar reportes filtrables por fecha, categoría, canal y vendedor.
 
@@ -306,7 +313,8 @@ Programar reportes automáticos (diario, semanal, mensual).
 
 Respetar permisos de acceso a datos.
 
-Escenarios en Gherkin
+### Escenarios en Gherkin
+
 
 Feature: Exportación de reportes de ventas
   Como analista
@@ -331,7 +339,7 @@ Como Usuario
 Quiero actualizar mi dirección de envío en mi perfil
 Para que los pedidos futuros lleguen al lugar correcto.
 
-Criterios de aceptación
+### Criterios de aceptación
 
 Permitir agregar múltiples direcciones y marcar una como predeterminada.
 
@@ -341,7 +349,8 @@ Usar la dirección predeterminada en checkout por defecto.
 
 Impedir eliminar la única dirección predeterminada.
 
-Escenarios en Gherkin
+### Escenarios en Gherkin
+
 
 Feature: Gestión de direcciones de envío
   Como usuario
@@ -366,7 +375,7 @@ Como Responsable de integraciones
 Quiero configurar y probar integraciones con transportistas externos
 Para automatizar la generación de guías y el seguimiento.
 
-Criterios de aceptación
+### Criterios de aceptación
 
 Guardar credenciales y endpoints por transportista de forma segura.
 
@@ -376,7 +385,8 @@ Generar número de guía automáticamente al confirmar envío.
 
 Registrar errores de integración con detalles para soporte.
 
-Escenarios en Gherkin
+### Escenarios en Gherkin
+
 
 Feature: Integración con transportistas
   Como responsable de integraciones
